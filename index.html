@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boekingstool</title>
+</head>
+<body>
+    <form id="booking-form">
+        <label for="datetime">Kies een tijdstip:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <button type="submit">Boek nu</button>
+    </form>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const datetime = document.getElementById('datetime').value;
+            if (datetime) {
+                window.location.href = 'https://jouwlink.com?time=' + encodeURIComponent(datetime);
+            } else {
+                alert("Kies een geldig tijdstip.");
+            }
+        });
+    </script>
+</body>
+</html>
